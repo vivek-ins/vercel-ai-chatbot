@@ -1,15 +1,45 @@
+// {
+//   "compilerOptions": {
+//     "lib": ["dom", "dom.iterable", "esnext"],
+//     "allowJs": true,
+//     "skipLibCheck": true,
+//     "strict": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "noEmit": true,
+//     "incremental": true,
+//     "esModuleInterop": true,
+//     "module": "ESNext",
+//     "moduleResolution": "node",    
+//     "target": "esnext",
+//     "resolveJsonModule": true,
+//     "isolatedModules": true,
+//     "jsx": "preserve",
+//     "baseUrl": ".",
+//     "paths": {
+//       "@/*": ["./*"]
+//     },
+//     "plugins": [
+//       {
+//         "name": "next"
+//       }
+//     ],
+//     "strictNullChecks": true
+//   },
+//   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+//   "exclude": ["node_modules"]
+// }
 {
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
+    "skipLibCheck": true, // Skip type-checking for third-party libraries
+    "strict": true, // Enable strict type-checking
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
-    "module": "ESNext",
-    "moduleResolution": "node",    
+    "module": "Node16",
+    "moduleResolution": "node16", // Updated for compatibility with modern modules
     "target": "esnext",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -18,6 +48,7 @@
     "paths": {
       "@/*": ["./*"]
     },
+    "typeRoots": ["./types", "./node_modules/@types"], // Include custom type declarations
     "plugins": [
       {
         "name": "next"

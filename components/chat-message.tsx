@@ -1,6 +1,4 @@
 import { Message } from 'ai';
-import remarkGfm from 'remark-gfm';
-import remarkMath from 'remark-math';
 
 import { cn } from '@/lib/utils';
 import { CodeBlock } from '@/components/ui/codeblock';
@@ -20,7 +18,7 @@ export function ChatMessage({ message, ...props }: ChatMessageProps) {
     >
       <div
         className={cn(
-          'flex h-8 w-8 shrink-0 select-none items-center justify-center rounded-md border shadow',
+          'flex size-8 shrink-0 select-none items-center justify-center rounded-md border shadow',
           message.role === 'user'
             ? 'bg-background'
             : 'bg-primary text-primary-foreground'
@@ -31,8 +29,11 @@ export function ChatMessage({ message, ...props }: ChatMessageProps) {
       <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
         <MemoizedReactMarkdown
           className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
-          remarkPlugins={[remarkGfm, remarkMath]}
+          remarkPlugins={[
+            require('remark-gfm').default
+          ]}
           components={{
+
             p({ children }) {
               return <p className="mb-2 last:mb-0">{children}</p>;
             },
